@@ -23,3 +23,10 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('resolveCaptcha', () => {
+    // Lógica para resolver o captcha
+    cy.pause(); // Pausa o teste para resolução manual
+    cy.log('Resolva o captcha manualmente');
+  });

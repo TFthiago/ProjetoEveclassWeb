@@ -2,32 +2,52 @@ describe('Fluxo para compra de curso - Plataforma testando Eveclass', () => {
     let credenciais;
 
     before(() => {
-        cy.visit("https://testando.eveclass.com/pt/auth/entrar");
+        // cy.visit("https://testando.eveclass.com/pt");
+        cy.visit('/')
         cy.fixture("credenciais").then((cred) => {
             credenciais = cred
         });
 
+        // Realizando Login na plataforma
         cy.get(".input-wrapper-inpt")
             .eq(0)
             .should('be.visible')
             .click()
-            .type('testerqa-165@yopmail.com')
+            .type('testerqa-137@yopmail.com')
 
         cy.get(".input-wrapper-inpt")
             .eq(1)
             .should('be.visible')
             .click()
-            .type('1234567')
+            .type('123456')
 
         cy.get('.button-default')
             .should('be.visible')
             .click()
 
-        // cy.wait()
+        // Pausa para resolução do captcha
+        cy.resolveCaptcha()
+
+        cy.get('.button-default')
+            .should('be.visible')
+            .click()
+
+        // cy.get('.fa-times')
+        //     .should('be.visible')
+        //     .click()
     })
     
-    it('', () => {
+    it('Realização da compra', () => {
 
+        cy.get('.button-default')
+            .should('contain.text', ' \n        Procurar cursos\n       ')
+            .eq(0)
+            .click()
+        
+        cy.get('[class="content-card-name variant-primary "]')
+            .should('be.visible')
+            .eq(0)
+            .click()
     })
 
 
