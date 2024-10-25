@@ -1,22 +1,19 @@
 describe('Fluxo para compra de curso - Plataforma testando Eveclass', () => {
     let credenciais;
 
+        
+        
     before(() => {
-        // cy.visit("https://testando.eveclass.com/pt");
-        cy.visit('/')
-        cy.fixture("credenciais").then((cred) => {
-            credenciais = cred
-        });
 
+        cy.visit('https://testando.eveclass.com/pt/auth/entrar')
+        
         // Realizando Login na plataforma
-        cy.get(".input-wrapper-inpt")
-            .eq(0)
+        cy.get('[data-vv-as="Email"]')
             .should('be.visible')
             .click()
             .type('testerqa-137@yopmail.com')
 
-        cy.get(".input-wrapper-inpt")
-            .eq(1)
+        cy.get('[data-vv-as="Senha"]')
             .should('be.visible')
             .click()
             .type('123456')
