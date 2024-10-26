@@ -30,3 +30,11 @@ Cypress.Commands.add('resolveCaptcha', () => {
     cy.pause(); // Pausa o teste para resolução manual
     cy.log('Resolva o captcha manualmente');
   });
+
+
+Cypress.Commands.add('getActElement', (selector, text) => {
+    cy.get(selector)
+      .should('be.visible')
+      .click()
+      .type(text)
+  })
