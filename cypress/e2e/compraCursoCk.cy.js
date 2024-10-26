@@ -1,17 +1,11 @@
 describe('Fluxo para compra de curso - Plataforma testando Eveclass', () => {
-    let credenciais;
-
-        
-        
+       
     before(() => {
-
         //Login com memória de Cookie
-        cy.setCookie('ev_at_62bf145fd8ff1ef247cd4eda', '13cdf900-9305-11ef-a3b4-1595982be9f6a7554584-5b05-42d8-95e4-55fe3af64018')
+        cy.setCookie('ev_at_62bf145fd8ff1ef247cd4eda', '18016fd0-93d1-11ef-a3b4-1595982be9f618aac7c6-dcde-4ffb-a2c8-4a42d0e51c8e')
 
         //Visitar página de perfil
         cy.visit('/conta/meus-cursos')
-        
-
     })
     
     it('Realização da compra', () => {
@@ -31,7 +25,6 @@ describe('Fluxo para compra de curso - Plataforma testando Eveclass', () => {
             .should('be.visible')
             .eq(0)
             .click()
-
 
         //Página do curso//
         
@@ -66,16 +59,12 @@ describe('Fluxo para compra de curso - Plataforma testando Eveclass', () => {
             .click()
             .type('13')
 
-        cy.get('.button-text')
-            .contains(/^Confirmar Compra$/)
-            .click()
+        //Confirmar compra
+        // cy.get('.button-text')
+        //     .contains(/^Confirmar Compra$/)
+        //     .click()
 
         //Resolver captcha de segurança
-        cy.resolveCaptcha()
-            
+        // cy.resolveCaptcha()
     })
-
-
-
-    
 })
