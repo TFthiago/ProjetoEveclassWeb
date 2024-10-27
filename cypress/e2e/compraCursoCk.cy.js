@@ -2,15 +2,15 @@ describe('Fluxo para compra de curso - Plataforma testando Eveclass', () => {
        
     before(() => {
         //Login com Cookie
-        cy.setCookie('ev_at_62bf145fd8ff1ef247cd4eda', 'a0ecd970-9461-11ef-8c2a-e1b8a98d0262d7597506-1611-409b-a6e6-da0c1efa711e')
+        cy.setCookie('ev_at_62bf145fd8ff1ef247cd4eda', '63287080-9494-11ef-8c2a-e1b8a98d02626a5ca044-4c0c-436d-9e6d-4931be443f45')
 
         //Visitar página de perfil
         cy.visit('/conta/meus-cursos')
     })
     
-    it('Realização da compra', () => {
+    it('Teste de compra do curso "Progr@mação JavaScript - Básico" ', () => {
 
-        //Página de perfil (Meus cursos)//
+    //Página de perfil (Meus cursos)//
 
         //Botão 'Procurar cursos' 
         cy.get('.button-default')
@@ -19,25 +19,31 @@ describe('Fluxo para compra de curso - Plataforma testando Eveclass', () => {
             .click()
         
 
-        //Página catálogo de cursos//
+    //Página catálogo de cursos//
 
         //Verificação do título
         cy.get('h1.course-list-nav')
             .should('contain.text', 'Todos cursos')
 
-        //Primeiro link / banner da página
+        //Link do curso
         cy.get('[class="content-card-name variant-primary "]')
             .should('be.visible')
             .eq(0)
+            .should('have.text', 'Progr@mação JavaScript - ...')
             .click()
 
 
-        //Página do curso//
+    //Página do curso//
         
         //Validação de preço
         cy.get('.content-price')
             .eq(0)
             .contains(/^R\$ 0,00$/)
+
+        //Validação do nome
+        cy.get(' h1')
+            .eq(0)
+            .should('have.text', 'Progr@mação JavaScript - Básicojjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjllllllllllllllllllllllllllllllllrrrrrrrrrrrrrrriiiiiiiiiiiiiiiiiiiiiiiiiiiuuuuuuuuuuuuuuuuuuuuuuuhhhhhhg ')
                             
         //Botão comprar
         cy.get('.content-action')
