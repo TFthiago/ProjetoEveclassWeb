@@ -38,3 +38,9 @@ Cypress.Commands.add('getActElement', (selector, text) => {
       .click()
       .type(text)
   })
+
+Cypress.Commands.add('getActElement2', (selector) => {
+    cy.get(selector)
+      .should('be.visible')
+      .click()
+  })
