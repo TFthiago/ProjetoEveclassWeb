@@ -3,12 +3,19 @@ describe('Teste de criação de conta - Plataforma testando Eveclass', () => {
     before(() => {
 
         //Visitar página de cadastro
-        cy.visit('/auth/registrar')
+        cy.visit('/')
+
+        cy.get('#main-action')
+            .eq(0)
+            .should('have.attr', 'href', '/pt/auth/registrar')
+            .click()
+
+        // cy.reload()
+        cy.visit('auth/registrar')
+
     })
 
     it('Teste cadastro de conta', () => {
-
-        Cypress.on('uncaught:exception')
 
         //Verificação do título
         cy.get(' h1')
@@ -30,7 +37,7 @@ describe('Teste de criação de conta - Plataforma testando Eveclass', () => {
             .should('have.text', '\n            Próximo\n          ')
             .click()
         
-        cy.resolveCaptcha()
+        // cy.resolveCaptcha()
 
         //Botão 'Próximo'
         cy.get('.button-text')

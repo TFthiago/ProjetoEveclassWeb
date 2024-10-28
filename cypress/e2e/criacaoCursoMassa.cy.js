@@ -4,7 +4,7 @@ describe('Fluxo para criação de curso - Plataforma Eveclass', () => {
     
     beforeEach(() => {
         //Login com memória de Cookie
-        cy.setCookie('ev_at_62bf145fd8ff1ef247cd4eda', '7eba2b70-9496-11ef-8c2a-e1b8a98d02623455a09d-5a14-4f9a-a46a-0dc191d7e938')
+        cy.setCookie('ev_at_62bf145fd8ff1ef247cd4eda', '351dcaa0-954d-11ef-8b66-0fc68e3c04452de058f1-c3b0-4579-b708-c52dc544b16a')
     
         //Visitar página de admin
         cy.visit('/admin/conteudo')
