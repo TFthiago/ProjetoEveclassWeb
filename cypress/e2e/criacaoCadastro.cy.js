@@ -37,7 +37,7 @@ describe('Teste de criação de conta - Plataforma testando Eveclass', () => {
             .should('have.text', '\n            Próximo\n          ')
             .click()
         
-        // cy.resolveCaptcha()
+        cy.resolveCaptcha()
 
         //Botão 'Próximo'
         cy.get('.button-text')
